@@ -1,0 +1,16 @@
+:1
+:,/h1/-d
+:g/\(\s\+\)*\(\n\)*\(\n\s\+\)*<\/div>\n\s\+<\/main>/norm dG
+%s/<span class="interviewed">//g
+%s/<\/span>\s\+&quot;/"/g
+%s/&quot;/"/g
+%s/“/"/g
+%s/”/"/g
+%s/’/'/g
+%s/&#039;/'/g
+%s/<\/p>\(\n\s\+\)*<p class="question">/\r\r-	/g
+%s/<\/p>\(\n\s\+\)*<p class="answer">— /\r-	/g
+%s/<strong>//g
+%s/<\/strong>//g
+%s/<em>//g
+%s/<\/em>//g

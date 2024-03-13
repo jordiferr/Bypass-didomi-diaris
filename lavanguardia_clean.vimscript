@@ -1,0 +1,27 @@
+:1
+:,/<h1 /-d
+:g/^\s\+<div class="authors-signature-container/norm dG
+:g/<picture \(.*\)<\/picture>/d
+:g/<figcaption class="figure-caption">/d
+:g/<span class="content-ad/d
+:g/<ins data-ad-type="\w\+" data-ad-device="\w\+"/d
+%s/^\s\+<h1/<h1/g
+%s/\s\+<p data-gtm-element-container="modulo-texto-link" class="paragraph">//g
+%s/\s\+<figure class="composite-image image-container " data-gtm-element-container="button-gallery">//g
+%s/<\/div>\n\s\+\n\s\+<div class="supra-title-container">\n\s\+\n\s\+//g
+%s/<\/h2>\n<\/div>\n\s\+<\/div>\n\n\s\+\n\s\+\n\s\+<div class="epigraph-container" data-gtm-element-container="modulo-texto-link">\n\s\+\n\s\+<h2 class="epigraph">/: /g
+:g/^$/d
+:g/^\(\s\+\)*$/d
+%s/<\/p>\n\(.*\)class="paragraph">/\r\r/g
+"
+" Canvis cosmètics
+"
+%s/&quot;/"/g
+%s/“/"/g
+%s/”/"/g
+%s/’/'/g
+%s/&#039;/'/g
+%s/<strong>//g
+%s/<\/strong>//g
+%s/<em>//g
+%s/<\/em>//g
