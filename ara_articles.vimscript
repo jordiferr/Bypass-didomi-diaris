@@ -3,12 +3,19 @@
 :g/\(\s\+\)*\(\n\)*\(\n\s\+\)*<\/div>\n\s\+<\/main>/norm dG
 %s/\s\+<h1 class="title">\n\s\+/<h1 class="title">/g
 %s/\n\s\+<\/h1>\n\s\+\n\s\+<h2/<\/h1>\r<h2/g
+%s/\s\+<div style="display:none">//g
 %s/<\/h2>\_.\{-}<p ><span class='place'>.*<\/span>/<\/h2>\r\r/g
+%s/\(\n\s\+\)*<p >/\r\r/g
+%s/<ara-advertising-position type="content" fixed-height><\/ara-advertising-position>//g
 %s/&quot;/"/g
+%s/&lsquo;/'/g
+%s/&rsquo;/'/g
+%s/&euro;/€/g
 %s/“/"/g
 %s/”/"/g
 %s/’/'/g
 %s/&#039;/'/g
+%s/&middot;/·/g
 %s/<strong>//g
 %s/<\/strong>//g
 %s/<em>//g

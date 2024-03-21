@@ -10,6 +10,7 @@
 %s/&#039;/'/g
 %s/<\/p>\(\n\s\+\)*<p class="question">/\r\r-	/g
 %s/<\/p>\(\n\s\+\)*<p class="answer">— /\r-	/g
+%s/\(\n\s\+\)*<p >//g
 %s/<strong>//g
 %s/<\/strong>//g
 %s/<em>//g
