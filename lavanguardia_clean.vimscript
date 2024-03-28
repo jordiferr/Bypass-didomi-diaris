@@ -13,6 +13,7 @@
 :g/^$/d
 :g/^\(\s\+\)*$/d
 %s/<\/p>\n\(.*\)class="paragraph">/\r\r/g
+%s/<p data-gtm-element-container="modulo-texto-link" class="paragraph">//g
 "
 " Canvis cosmètics
 "
