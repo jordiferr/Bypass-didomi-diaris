@@ -6,7 +6,9 @@
 %s/\s\+<div style="display:none">//g
 %s/<\/h2>\_.\{-}<p ><span class='place'>.*<\/span>/<\/h2>\r\r/g
 %s/\(\n\s\+\)*<p >/\r\r/g
+%s/<\/p>\(\n\|\s\)*<h3/<\/p>\r\r\r<h3/g
 %s/<ara-advertising-position type="content" fixed-height><\/ara-advertising-position>//g
+%s/<div class="ara-newsletter">\_.\{-}<\/ara-button>//g
 %s/&quot;/"/g
 %s/&lsquo;/'/g
 %s/&rsquo;/'/g
