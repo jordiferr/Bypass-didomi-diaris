@@ -1,17 +1,40 @@
 :1
-:,/h1/-d
-:g/\(\s\+\)*\(\n\)*\(\n\s\+\)*<\/div>\n\s\+<\/main>/norm dG
+:,/h1 class="title"/-d
+":g/\(\s\+\)*\(\n\)*\(\n\s\+\)*<\/div>\n\s\+<\/main>/norm dG
+:g/\(\n\s\+\)*<\/div>\n\s\+<\/main>/norm dG
+if search('<aside class="ara-recirculation  closedPaywall closed-paywall">') != 0
+	:g/<aside class="ara-recirculation  closedPaywall closed-paywall">/norm dG
+elseif search('<aside class="ara-recirculation ">') != 0
+	:g/<aside class="ara-recirculation ">/norm dG
+endif
+%s/\s\+<h1 class="title">\n\s\+/<h1 class="title">/g
+%s/\n\s\+<\/h1>\n\s\+\n\s\+<h2/<\/h1>\r<h2/g
+%s/\s\+<div style="display:none">//g
+%s/<\/h2>\_.\{-}<p ><span class='place'>.*<\/span>/<\/h2>\r\r/g
 %s/<span class="interviewed">//g
-%s/<\/span>\s\+&quot;/"/g
-%s/&quot;/"/g
-%s/“/"/g
-%s/”/"/g
-%s/’/'/g
-%s/&#039;/'/g
-%s/<\/p>\(\n\s\+\)*<p class="question">/\r\r-	/g
-%s/<\/p>\(\n\s\+\)*<p class="answer">— /\r-	/g
-%s/\(\n\s\+\)*<p >//g
-%s/<strong>//g
-%s/<\/strong>//g
-%s/<em>//g
-%s/<\/em>//g
+%s/<ara-advertising-position><\/ara-advertising-position>//g
+%s/<ara-advertising-position type="content"><\/ara-advertising-position>//g
+:silent! %s/<\/span>\s\+&quot;/"/g
+:silent! %s/&quot;/"/g
+:silent! %s/“/"/g
+:silent! %s/”/"/g
+:silent! %s/‘/'/g
+:silent! %s/’/'/g
+:silent! %s/&#039;/'/g
+:silent! %s/<\/p>\(\n\s\+\)*<p class="question">/\r\r-	/g
+:silent! %s/<\/p>\(\n\s\+\)*<p class="answer">— /\r-	/g
+:silent! %s/\(\n\s\+\)*<p >//g
+:silent! %s/<strong>//g
+:silent! %s/<\/strong>//g
+:silent! %s/<em>//g
+:silent! %s/<\/em>//g
+:silent! %s/…/\.\.\./g
+:silent! %s/–/-/g
+:silent! %s/ soc / sóc /g
+:silent! %s/\. Soc /\. Sóc /g
+"
+" Canvis cosmètics
+" (sempre en última posició, és l'últim que s'executarà)
+"
+:silent! %s/<\/p>//g
+:silent! %s/^\s\+$//g

@@ -1,6 +1,12 @@
 :1
 :,/h1 class="title"/-d
-:g/\(\s\+\)*\(\n\)*\(\n\s\+\)*<\/div>\n\s\+<\/main>/norm dG
+":g/\(\s\+\)*\(\n\)*\(\n\s\+\)*<\/div>\n\s\+<\/main>/norm dG
+:g/\(\n\s\+\)*<\/div>\n\s\+<\/main>/norm dG
+if search('<aside class="ara-recirculation  closedPaywall closed-paywall">') != 0
+	:g/<aside class="ara-recirculation  closedPaywall closed-paywall">/norm dG
+elseif search('<aside class="ara-recirculation ">') != 0
+	:g/<aside class="ara-recirculation ">/norm dG
+endif
 %s/\s\+<h1 class="title">\n\s\+/<h1 class="title">/g
 %s/\n\s\+<\/h1>\n\s\+\n\s\+<h2/<\/h1>\r<h2/g
 %s/\s\+<div style="display:none">//g
@@ -8,17 +14,27 @@
 %s/\(\n\s\+\)*<p >/\r\r/g
 %s/<\/p>\(\n\|\s\)*<h3/<\/p>\r\r\r<h3/g
 %s/<ara-advertising-position type="content" fixed-height><\/ara-advertising-position>//g
+%s/<ara-advertising-position type="content"><\/ara-advertising-position>//g
 %s/<div class="ara-newsletter">\_.\{-}<\/ara-button>//g
-%s/&quot;/"/g
-%s/&lsquo;/'/g
-%s/&rsquo;/'/g
-%s/&euro;/€/g
-%s/“/"/g
-%s/”/"/g
-%s/’/'/g
-%s/&#039;/'/g
-%s/&middot;/·/g
-%s/<strong>//g
-%s/<\/strong>//g
-%s/<em>//g
-%s/<\/em>//g
+:silent! %s/&quot;/"/g
+:silent! %s/&lsquo;/'/g
+:silent! %s/&rsquo;/'/g
+:silent! %s/&euro;/€/g
+:silent! %s/“/"/g
+:silent! %s/”/"/g
+:silent! %s/‘/'/g
+:silent! %s/’/'/g
+:silent! %s/&#39;/'/g
+:silent! %s/&#039;/'/g
+:silent! %s/&middot;/·/g
+:silent! %s/<strong>//g
+:silent! %s/<\/strong>//g
+:silent! %s/<em>//g
+:silent! %s/<\/em>//g
+:silent! %s/…/\.\.\./g
+:silent! %s/–/-/g
+"
+" això ha d'estar sempre al final
+"
+:silent! %s/<\/p>//g
+:silent! %s/^\s\+$//g
