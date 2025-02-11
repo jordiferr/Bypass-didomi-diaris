@@ -38,3 +38,9 @@ endif
 "
 :silent! %s/<\/p>//g
 :silent! %s/^\s\+$//g
+:2
+:put =strftime('')
+:put =strftime('')
+:3
+":put =strftime('%Y-%m-%d')
+:r! date
