@@ -30,6 +30,7 @@ endif
 :silent! %s/<\/em>//g
 :silent! %s/…/\.\.\./g
 :silent! %s/–/-/g
+:silent! %s/—/-/g
 :silent! %s/ soc / sóc /g
 :silent! %s/\. Soc /\. Sóc /g
 "
